@@ -1,0 +1,16 @@
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+#    表示是否注册自身到eureka服务器，因为当前这个应用就是eureka服务器，没必要注册自身
+    register-with-eureka: false
+#    表示是否从eureka服务器获取注册信息，同上
+    fetch-registry: false
+    service-url:
+#    如果这里配置的是配置了多态注册中心（实现高可用），则可以用逗号分开
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+server:
+  port: 8761

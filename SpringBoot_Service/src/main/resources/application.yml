@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: cloud-simple-service
+
+
+#服务启动后向eureka注册中心注册自己的服务
+eureka:
+  client:
+    enabled: true
+    healthcheck:
+      enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+server:
+  port: 8093
