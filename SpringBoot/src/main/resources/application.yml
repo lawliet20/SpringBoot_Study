@@ -1,0 +1,56 @@
+spring:
+  application:
+    name: hello
+  profiles:
+    active: default
+
+  #视图配置
+#  mvc:
+#    view:
+#      prefix: /pages/
+#      suffix: .html
+  #数据源配置(在Spring Boot1.4.0中驱动配置信息没有问题，但是连接池的配置信息不再支持这里的配置项，即无法通过配置)
+  #参考链接：http://blog.csdn.net/blueheart20/article/details/52384032
+  datasource:
+    # 驱动配置信息
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost/sy?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: tiger
+    driver-class-name: com.mysql.jdbc.Driver
+    #连接池的配置信息
+    druid:
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      filters: stat,wall,log4j
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+---
+#服务启动后向eureka注册中心注册自己的服务
+#eureka:
+#  client:
+#    enabled: true
+#    healthcheck:
+#      enabled: true
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+##     如何这里配置了注册中心集群，则这里用逗号分开
+#      defaultZone: http://localhost:8761/eureka/
+
+#容器配置
+server:
+  prot: 8080
+---
+debug: true
+---
+
