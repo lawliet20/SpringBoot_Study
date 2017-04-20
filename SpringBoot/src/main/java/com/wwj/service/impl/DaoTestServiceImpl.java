@@ -21,7 +21,7 @@ public class DaoTestServiceImpl implements DaoTestService {
     @Override
     public void testSelect() {
         List<User> list = userMapper.selectUser();
-        System.out.println("###############");
+        System.out.println("查询数据库用户-->");
         System.out.println(JSONUtils.toJSONString(list));
     }
 }

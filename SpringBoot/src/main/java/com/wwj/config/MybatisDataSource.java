@@ -17,13 +17,15 @@ import javax.sql.DataSource;
 //mybaits dao 搜索路径
 @MapperScan("com.wwj.dao")
 public class MybatisDataSource {
-	@Autowired
-	private DataSourceProperties dataSourceProperties;
-	//mybaits mapper xml搜索路径
-	private final static String mapperLocations="classpath:mybatis/*.xml";
+    @Autowired
+    private DataSourceProperties dataSourceProperties;
+    //mybaits mapper xml搜索路径
+    private final static String mapperLocations = "classpath:mybatis/*.xml";
+    //mybatis分页配路径
+    private final static String mybatisConfigs = "classpath:mybatis-config.xml";
 
-	@Autowired
-	private DataSource dataSource;
+    @Autowired
+    private DataSource dataSource;
 
 //	private org.apache.tomcat.jdbc.pool.DataSource pool;
 //	@Bean(destroyMethod = "close")
@@ -54,18 +56,19 @@ public class MybatisDataSource {
 //			this.pool.close();
 //		}
 //	}
-	
-	@Bean
-	public SqlSessionFactory sqlSessionFactoryBean() throws Exception {		
-		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-		sqlSessionFactoryBean.setDataSource(dataSource);
-		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-		sqlSessionFactoryBean.setMapperLocations(resolver.getResources(mapperLocations));
-		 return sqlSessionFactoryBean.getObject();
-	}
-	
-	@Bean
-	public PlatformTransactionManager transactionManager() {
-		return new DataSourceTransactionManager(dataSource);
-	}
+
+    @Bean
+    public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
+        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(dataSource);
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources(mapperLocations));
+        sqlSessionFactoryBean.setConfigLocation(resolver.getResource(mybatisConfigs));
+        return sqlSessionFactoryBean.getObject();
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        return new DataSourceTransactionManager(dataSource);
+    }
 }
