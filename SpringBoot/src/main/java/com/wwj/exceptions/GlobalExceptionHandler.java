@@ -14,6 +14,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
     public String defaultErrHandler(HttpServletRequest request,Exception e) throws Exception{
+        e.printStackTrace();
         request.setAttribute("exception", e);
         request.setAttribute("url", request.getRequestURL());
         return "err";

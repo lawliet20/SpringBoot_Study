@@ -38,6 +38,12 @@ public class HelloController {
         return "hello";
     }
 
+    @RequestMapping("/transaction")
+    public String transaction() throws RuntimeException {
+        daoTestService.testTransaction();
+        return "hello";
+    }
+
     @RequestMapping("/exception")
     public String exception() throws Exception {
         throw new Exception();

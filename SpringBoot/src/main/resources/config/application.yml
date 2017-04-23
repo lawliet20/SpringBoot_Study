@@ -51,6 +51,6 @@ spring:
 server:
   prot: 8080
 ---
-debug: true
+info: true
 ---
 

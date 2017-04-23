@@ -6,4 +6,6 @@ package com.wwj.service;
 public interface DaoTestService {
 
     public void testSelect();
+
+    public void testTransaction();
 }

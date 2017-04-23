@@ -1,6 +1,8 @@
 package com.wwj.domain;
 
-public class Role {
+import java.io.Serializable;
+
+public class Role implements Serializable{
     private Integer roleId;
 
     private String roleName;

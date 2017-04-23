@@ -22,9 +22,16 @@
     user_id, birthday, password, user_name
   </sql>
 
-  <select id="selectUser" resultMap="UserMap" parameterType="java.lang.Integer" >
+  <select id="selectUser" resultMap="UserMap"  >
     select
       a.user_name,c.role_name
+    from user a,user_role b,role c
+    where a.user_id = b.user_id and b.role_id = c.role_id
+  </select>
+
+  <select id="selectUser2" resultType="com.wwj.domain.User" >
+    select
+    a.user_name as userName,c.role_name as roleName
     from user a,user_role b,role c
     where a.user_id = b.user_id and b.role_id = c.role_id
   </select>
