@@ -3,6 +3,9 @@ spring:
     name: hello
   profiles:
     active: default
+#    如果你的终端支持ANSI，设置彩色输出会让日志更具可读性
+#  output:
+#    ansi: enabled
 
   #视图配置
 #  mvc:
@@ -51,6 +54,7 @@ spring:
 server:
   prot: 8080
 ---
-info: true
+#该属性置为true的时候，核心Logger（包含嵌入式容器、hibernate、spring）会输出更多内容，
+#但是你自己应用的日志并不会输出为DEBUG级别
+debug: true
 ---
-

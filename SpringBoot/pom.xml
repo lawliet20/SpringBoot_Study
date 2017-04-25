@@ -43,6 +43,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!--默认使用logback日志-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+            <version>1.5.2.RELEASE</version>
+        </dependency>
+
         <!--spring-cloud_hystrix(断路器)相关-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -116,11 +123,11 @@
         </dependency>
 
         <!--log4j日志-->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--<version>1.2.17</version>-->
+        <!--</dependency>-->
 
         <!--工具包依赖-->
         <dependency>
