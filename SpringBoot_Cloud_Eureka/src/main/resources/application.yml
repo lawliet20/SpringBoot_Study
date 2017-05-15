@@ -1,16 +1,26 @@
+#添加用户安全认证，参考：http://blog.csdn.net/liuchuanhong1/article/details/54729556
+security:
+  basic:
+    enabled: true
+  user:
+    name: wwj
+    password: 123
 
 eureka:
   instance:
     hostname: localhost
   client:
 #    表示是否注册自身到eureka服务器，因为当前这个应用就是eureka服务器，没必要注册自身
-    register-with-eureka: false
+    registerWithEureka: false
+#    register-with-eureka: false
 #    表示是否从eureka服务器获取注册信息，同上
-    fetch-registry: false
+#    fetch-registry: false
+    fetchRegistry: false
     service-url:
-#    如果这里配置的是配置了多态注册中心（实现高可用），则可以用逗号分开
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-
+#    如果这里配置的是配置了多个注册中心（实现高可用），则可以用逗号分开
+      defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
 
 server:
   port: 8761
+  enableSelfPreservation: false
+

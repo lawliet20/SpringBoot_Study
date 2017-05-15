@@ -1,15 +1,11 @@
 package com.wwj.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
-import com.wwj.model.User;
 import com.wwj.service.DaoTestService;
-import com.wwj.service.HelloService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  *
@@ -21,30 +17,29 @@ import java.util.List;
 @Controller
 public class HelloController {
     @Resource
-    private HelloService helloService;
-    @Resource
     private DaoTestService daoTestService;
 
     @RequestMapping("/")
     public String index() {
-        List<User> list = helloService.searchAll();
-        System.out.println(JSONUtils.toJSONString("####:"+list));
         return "index";
     }
 
-    @RequestMapping("/hello")
+    /*调用数据库*/
+    @RequestMapping("/test/mybatis")
     public String hello() throws Exception {
         daoTestService.testSelect();
         return "hello";
     }
 
-    @RequestMapping("/transaction")
+    /*测试事物*/
+    @RequestMapping("/test/transaction")
     public String transaction() throws RuntimeException {
         daoTestService.testTransaction();
         return "hello";
     }
 
-    @RequestMapping("/exception")
+    /*测试全局异常捕获*/
+    @RequestMapping("/test/exception")
     public String exception() throws Exception {
         throw new Exception();
     }

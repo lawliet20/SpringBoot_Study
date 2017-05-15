@@ -39,7 +39,7 @@ logging:
   level.org.springframework.cloud: DEBUG
 
 server:
-  port: 8080
+  port: 8091
 zuul:
   ignoredPatterns: /health,/error
   retryable: true

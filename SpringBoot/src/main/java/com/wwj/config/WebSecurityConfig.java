@@ -31,6 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .disable()
                 .authorizeRequests()
                 .antMatchers("/","/home").permitAll()//访问：无需登录认证权限
+                .antMatchers("/test/restTemplateRes").permitAll()
                 .anyRequest().authenticated() //其他所有资源都需要认证，登陆后访问
                 .antMatchers("/account/**").hasAuthority("ADMIN") //登陆后之后拥有“ADMIN”权限才可以访问/hello方法，否则系统会出现“403”权限不足的提示
                 .and()

@@ -1,7 +1,8 @@
 package com.wwj.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.wwj.model.User;
-import com.wwj.service.HelloService;
+import com.wwj.service.RemoteService;
 import com.xiaoleilu.hutool.json.JSONUtil;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,24 +16,27 @@ import java.util.List;
  * Created by sherry on 2017/4/16.
  */
 @RestController
-public class HelloController {
+public class RemoteController {
     @Resource
-    private HelloService helloService;
+    private RemoteService remoteService;
 
-    /*提供接口给其他微服务调用（此接口无权限控制）*/
+    /**
+     * 调用远程微服务接口（远程服务接口不带权限控制）
+     * */
+    @RequestMapping("/test/restTemplateReq")
+    public void testRestRequest() throws Exception {
+        List<User> list = remoteService.requestUserList();
+        System.out.println(JSONUtils.toJSONString("####:"+ JSONUtil.toJsonStr(list)));
+    }
+
+    /**
+     * 远程微服务调用此接口（此接口带权限控制）
+     * */
     @RequestMapping("/test/restTemplateRes")
     public ResponseEntity<List<User>> testRestTemplateRes(){
         System.out.println("springBoot_service->testRestTemplateRes");
-        List<User> list = helloService.responseAllUser();
+        List<User> list = remoteService.responseUserList();
         return new ResponseEntity<List<User>>(list, HttpStatus.OK);
     }
-
-    /*测试访问远程微服务接口（远程接口有权限控制）*/
-    @RequestMapping("/test/restTemplateReq")
-    public void testRestTemplateReq(){
-        List<User> list = helloService.requestAllUser();
-        System.out.println("###:"+JSONUtil.toJsonStr(list));
-    }
-
 
 }
