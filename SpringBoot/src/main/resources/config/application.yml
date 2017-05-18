@@ -1,12 +1,17 @@
 spring:
   application:
     name: spring-boot
+    #邮件配置
+    mail:
+          host: smtp.126.com
+          username: lawliet_w@126.com
+          password: Hello520
+          default-encoding: UTF-8
   profiles:
       active: prod
 #    如果你的终端支持ANSI，设置彩色输出会让日志更具可读性
 #  output:
 #    ansi: enabled
-
   #视图配置
 #  mvc:
 #    view:

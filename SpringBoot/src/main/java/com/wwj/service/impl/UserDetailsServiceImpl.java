@@ -1,5 +1,6 @@
 package com.wwj.service.impl;
 
+import com.xiaoleilu.hutool.system.UserInfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.support.MessageSourceAccessor;
@@ -13,7 +14,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -34,14 +34,14 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 //    @Resource
 //    UserDao customUserDao;
-//
-//    private Map<String, UserInfo> userMap = null;
+
+    private Map<String, UserInfo> userMap = null;
     protected final Log logger = LogFactory.getLog(getClass());
     protected final MessageSourceAccessor messages = SpringSecurityMessageSource.getAccessor();
 
-//    public UserDetailsServiceImpl() {
-//        userMap = new HashMap<>();
-//    }
+    public UserDetailsServiceImpl() {
+        userMap = new HashMap<String, UserInfo>();
+    }
 
     @Override
     public UserDetails loadUserByUsername(String username)

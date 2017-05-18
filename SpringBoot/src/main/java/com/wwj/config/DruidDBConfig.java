@@ -78,7 +78,7 @@ public class DruidDBConfig {
         logger.info("注入druid");
     	DruidDataSource datasource = new DruidDataSource();
     	
-    	datasource.setUrl(this.dbUrl);
+    	datasource.setUrl(dbUrl);
     	datasource.setUsername(username);
     	datasource.setPassword(password);
     	datasource.setDriverClassName(driverClassName);
@@ -106,29 +106,24 @@ public class DruidDBConfig {
     	return datasource;
     }
 
-    //	private org.apache.tomcat.jdbc.pool.DataSource pool;
-//	@Bean(destroyMethod = "close")
+//    private org.apache.tomcat.jdbc.pool.DataSource pool;
+//	@Bean(name = "datasource2",destroyMethod = "close")
 //	public DataSource dataSource() {
-//		DataSourceProperties config = dataSourceProperties;
-//		this.pool = new org.apache.tomcat.jdbc.pool.DataSource();
-//		this.pool.setDriverClassName(config.getDriverClassName());
-//		this.pool.setUrl(config.getUrl());
-//		if (config.getUsername() != null) {
-//			this.pool.setUsername(config.getUsername());
-//		}
-//		if (config.getPassword() != null) {
-//			this.pool.setPassword(config.getPassword());
-//		}
-//		this.pool.setInitialSize(config.getInitialSize());
-//		this.pool.setMaxActive(config.getMaxActive());
-//		this.pool.setMaxIdle(config.getMaxIdle());
-//		this.pool.setMinIdle(config.getMinIdle());
-//		this.pool.setTestOnBorrow(config.isTestOnBorrow());
-//		this.pool.setTestOnReturn(config.isTestOnReturn());
-//		this.pool.setValidationQuery(config.getValidationQuery());
-//		return this.pool;
+//        this.pool = new org.apache.tomcat.jdbc.pool.DataSource();
+//		pool.setDriverClassName(driverClassName);
+//		pool.setUrl(dbUrl);
+//        pool.setUsername(username);
+//        pool.setPassword(password);
+//		pool.setInitialSize(initialSize);
+//		pool.setMaxActive(maxActive);
+//		pool.setMinIdle(minIdle);
+//		pool.setMaxIdle(maxWait);
+//		pool.setTestOnBorrow(testOnBorrow);
+//		pool.setTestOnReturn(testOnReturn);
+//		pool.setValidationQuery(validationQuery);
+//		return pool;
 //	}
-
+//
 //	@PreDestroy
 //	public void close() {
 //		if (this.pool != null) {
