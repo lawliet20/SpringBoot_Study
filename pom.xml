@@ -10,6 +10,7 @@
         <module>SpringBoot</module>
         <module>SpringBoot_Service</module>
         <module>SpringBoot_Cloud_Zuul</module>
+        <module>SpringBoot_Oauth2</module>
     </modules>
 
     <groupId>SpringBoot_Study</groupId>
