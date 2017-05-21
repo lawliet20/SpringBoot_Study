@@ -21,6 +21,6 @@ eureka:
       defaultZone: http://${security.user.name}:${security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
 
 server:
-  port: 8761
+  port: 8070
   enableSelfPreservation: false
 

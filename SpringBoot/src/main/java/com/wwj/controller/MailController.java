@@ -10,7 +10,7 @@ import javax.mail.internet.MimeMessage;
 
 /**
  *
- * @author 程序猿DD
+ * @author wwj
  * @version 1.0.0
  * @blog http://blog.didispace.com
  *

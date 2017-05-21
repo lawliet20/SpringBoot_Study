@@ -14,6 +14,15 @@ eureka:
     serviceUrl:
       defaultZone: http://wwj:123@localhost:8761/eureka/
 
+#配置授权服务器
+security:
+    oauth2:
+        client:
+            clientId: client
+            clientSecret: secret
+            accessTokenUri: http://localhost:8071/oauth/access_token
+            userAuthorizationUri: http://localhost:8071/oauth/authorize
+            clientAuthenticationScheme: form
 
 server:
   port: 8093

@@ -17,8 +17,9 @@ import java.net.UnknownHostException;
  * Created by sherry on 2017/4/16.
  */
 @SpringBootApplication
-//@EnableEurekaServer//配置本应用将使用服务注册和服务发现，注意：注册和发现用这一个注解。
 @EnableDiscoveryClient
+//To make your web-app into an OAuth2 client
+//@EnableOAuth2Client
 public class ServiceMainApp {
     private static final Logger log = LoggerFactory.getLogger(ServiceMainApp.class);
 

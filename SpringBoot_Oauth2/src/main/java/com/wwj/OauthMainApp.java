@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.core.env.Environment;
 
@@ -15,14 +14,13 @@ import java.net.UnknownHostException;
  * Created by sherry on 2017/3/19.
  */
 @SpringBootApplication
-@ServletComponentScan//配置servlet过滤器功能
 @EnableDiscoveryClient//让服务使用eureka服务器，只需添加@EnableDiscoveryClient注解
-public class MainApp {
+public class OauthMainApp {
 
-    private static final Logger log = LoggerFactory.getLogger(MainApp.class);
+    private static final Logger log = LoggerFactory.getLogger(OauthMainApp.class);
 
     public static void main(String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(MainApp.class);
+        SpringApplication app = new SpringApplication(OauthMainApp.class);
         Environment env = app.run(args).getEnvironment();
         log.info("\n----------------------------------------------------------\n\t" +
                         "Application '{}' is running! Access URLs:\n\t" +
