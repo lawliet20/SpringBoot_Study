@@ -1,6 +1,8 @@
 spring:
   application:
     name: oauth2-server
+  profiles:
+    active: dev
 
 server:
   port: 8071

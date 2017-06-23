@@ -1,0 +1,2 @@
+type,value,deleteFlag
+萝莉型,小萝莉,3

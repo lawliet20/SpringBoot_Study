@@ -6,23 +6,30 @@ spring:
 #服务启动后向eureka注册中心注册自己的服务
 eureka:
   client:
-    enabled: true
-    healthcheck:
       enabled: true
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://wwj:123@localhost:8761/eureka/
+      healthcheck:
+          enabled: true
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+#     如何这里配置了注册中心集群，则这里用逗号分开
+          defaultZone: http://wwj:123@localhost:8070/eureka/
+  instance:
+      prefer-ip-address: true #在eureka - http://localhost:8761上显示ip
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #定制在eureka - http://localhost:8761上显示的格式
+
 
 #配置授权服务器
-security:
-    oauth2:
-        client:
-            clientId: client
-            clientSecret: secret
-            accessTokenUri: http://localhost:8071/oauth/access_token
-            userAuthorizationUri: http://localhost:8071/oauth/authorize
-            clientAuthenticationScheme: form
-
+#security:
+#    oauth2:
+#        client:
+#            clientId: client
+#            clientSecret: secret
+#            accessTokenUri: http://localhost:8071/oauth/access_token
+#            userAuthorizationUri: http://localhost:8071/oauth/authorize
+#            clientAuthenticationScheme: form
+#        resource:
+#          jwt:
+#            key-uri: http://oauth2-server/oauth/token_key
 server:
   port: 8093

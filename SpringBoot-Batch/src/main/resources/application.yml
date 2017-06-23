@@ -1,0 +1,5 @@
+spring:
+  batch:
+    job:
+#    设置为true会在项目启动自动运行
+      enabled: false

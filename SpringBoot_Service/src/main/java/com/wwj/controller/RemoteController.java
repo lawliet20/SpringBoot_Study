@@ -15,7 +15,7 @@ import java.util.List;
  * Created by sherry on 2017/4/16.
  */
 @RestController
-public class HelloController {
+public class RemoteController {
     @Resource
     private HelloService helloService;
 

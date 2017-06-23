@@ -1,11 +1,11 @@
 package com.wwj.config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,9 +15,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Bean
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 
     /**
@@ -32,16 +33,27 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         super.configure(web);
     }
 
-    @Bean
     @Override
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+    protected void configure(HttpSecurity http) throws Exception {
+        //        http.csrf().disable().exceptionHandling().authenticationEntryPoint(
+        //                (request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED)).and()
+        //                .authorizeRequests().antMatchers("/**").authenticated().and().httpBasic();
+        super.configure(http);
     }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("wwj").password("123").roles("ADMIN");
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("reader").password("reader").authorities("FOO_READ").and()
+                .withUser("writer").password("writer").authorities("FOO_READ", "FOO_WRITE");
+
+        //        auth.jdbcAuthentication();
+    }
+
+
+//    @Autowired
+//    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.inMemoryAuthentication().withUser("reader").password("reader").authorities("FOO_READ").and()
+//                .withUser("writer").password("writer").authorities("FOO_READ", "FOO_WRITE");
 //        自定义查询用户的方法
 //指定密码加密所使用的加密器为passwordEncoder()
 //需要将密码加密后写入数据库
@@ -49,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //        auth.eraseCredentials(false);
 //        通过数据库获取用户，数据库需要有指定的表
 //        auth.jdbcAuthentication(datasource);
-    }
+//    }
 
 //    @Bean
 //    public BCryptPasswordEncoder passwordEncoder() {

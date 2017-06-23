@@ -26,23 +26,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     //访问http://localhost:8080/account 需要登录验证后，且具备 “ADMIN”权限hasAuthority("ADMIN")才可以访问
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf()
-                .disable()
-                .authorizeRequests()
-                .antMatchers("/","/home").permitAll()//访问：无需登录认证权限
-                .antMatchers("/test/restTemplateRes").permitAll()
-                .anyRequest().authenticated() //其他所有资源都需要认证，登陆后访问
-                .antMatchers("/account/**").hasAuthority("ADMIN") //登陆后之后拥有“ADMIN”权限才可以访问/hello方法，否则系统会出现“403”权限不足的提示
-                .and()
-                .formLogin()
-                .loginPage("/login")//指定登录页是”/login”
-                .permitAll()
-                .successHandler(loginSuccessHandler()) //登录成功后可使用loginSuccessHandler()存储用户信息，可选。
-                .and()
-                .logout()
-                .permitAll()
-                .invalidateHttpSession(true);
+        super.configure(http);
+//        http
+//                .csrf()
+//                .disable()
+//                .authorizeRequests()
+//                .antMatchers("/","/home").permitAll()//访问：无需登录认证权限
+//                .antMatchers("/test/restTemplateRes").permitAll()
+//                .anyRequest().authenticated() //其他所有资源都需要认证，登陆后访问
+//                .antMatchers("/account/**").hasAuthority("ADMIN") //登陆后之后拥有“ADMIN”权限才可以访问/hello方法，否则系统会出现“403”权限不足的提示
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")//指定登录页是”/login”
+//                .permitAll()
+//                .successHandler(loginSuccessHandler()) //登录成功后可使用loginSuccessHandler()存储用户信息，可选。
+//                .and()
+//                .logout()
+//                .permitAll()
+//                .invalidateHttpSession(true);
 //                .and()
         //开启cookie保存用户数据
 //                .rememberMe()

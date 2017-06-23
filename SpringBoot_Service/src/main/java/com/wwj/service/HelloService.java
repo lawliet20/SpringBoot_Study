@@ -1,10 +1,11 @@
 package com.wwj.service;
 
 import com.wwj.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import java.util.List;
  */
 @Service
 public class HelloService {
-    @Autowired
+    @Resource(name = "restTemplate")
     RestTemplate restTemplate;
 
     final String SERVICE_NAME = "spring-boot";
@@ -29,6 +30,7 @@ public class HelloService {
         return list;
     }
 
+    @LoadBalanced
     public List<User> requestAllUser(){
         return restTemplate.getForObject("http://" + SERVICE_NAME + "/test/restTemplateRes", List.class);
     }

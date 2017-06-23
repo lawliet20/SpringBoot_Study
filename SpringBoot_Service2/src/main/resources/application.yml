@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: simple-service2
+
+
+#服务启动后向eureka注册中心注册自己的服务
+#eureka:
+#  client:
+#    enabled: true
+#    healthcheck:
+#      enabled: true
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://wwj:123@localhost:8070/eureka/
+
+server:
+  port: 8094
