@@ -2,67 +2,12 @@ spring:
   application:
     name: spring-boot
     profiles:
-        active: default
-    #邮件配置
-  mail:
-      host: smtp.126.com
-      username: lawliet_w@126.com
-      password: Hello520
-      default-encoding: UTF-8
-#    如果你的终端支持ANSI，设置彩色输出会让日志更具可读性
-#  output:
-#    ansi: enabled
-  #视图配置
-#  mvc:
-#    view:
-#      prefix: /pages/
-#      suffix: .html
-  #数据源配置(在Spring Boot1.4.0中驱动配置信息没有问题，但是连接池的配置信息不再支持这里的配置项，即无法通过配置)
-  #参考链接：http://blog.csdn.net/blueheart20/article/details/52384032
-  datasource:
-    # 驱动配置信息
-    type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://localhost/demo?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: tiger
-    driver-class-name: com.mysql.jdbc.Driver
-    #连接池的配置信息
-    druid:
-      initialSize: 5
-      minIdle: 5
-      maxActive: 20
-      maxWait: 60000
-      timeBetweenEvictionRunsMillis: 60000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
-      filters: stat,wall,log4j
-      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
----
-#服务启动后向eureka注册中心注册自己的服务
-eureka:
-  client:
-      enabled: true
-      healthcheck:
-          enabled: true
-      registerWithEureka: true
-      fetchRegistry: true
-      serviceUrl:
-#     如何这里配置了注册中心集群，则这里用逗号分开
-          defaultZone: http://wwj:123@localhost:8070/eureka/
-  instance:
-      prefer-ip-address: true #在eureka - http://localhost:8761上显示ip
-      instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #定制在eureka - http://localhost:8761上显示的格式
+        active: dev
 
----
+
 #容器配置
 server:
     prot: 8088
 #该属性置为true的时候，核心Logger（包含嵌入式容器、hibernate、spring）会输出更多内容，
 #但是你自己应用的日志并不会输出为DEBUG级别
 debug: false
----

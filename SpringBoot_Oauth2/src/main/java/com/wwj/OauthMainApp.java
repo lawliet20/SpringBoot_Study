@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 
 import java.net.InetAddress;
@@ -13,6 +14,7 @@ import java.net.UnknownHostException;
 /**
  * Created by sherry on 2017/3/19.
  */
+@ComponentScan
 @SpringBootApplication
 @EnableDiscoveryClient//让服务使用eureka服务器，只需添加@EnableDiscoveryClient注解
 public class OauthMainApp {

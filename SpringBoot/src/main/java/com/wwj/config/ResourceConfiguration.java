@@ -73,10 +73,11 @@ public class ResourceConfiguration extends ResourceServerConfigurerAdapter {
         // Load available UAA servers
         discoveryClient.getServices();
         HttpEntity<Void> request = new HttpEntity<Void>(new HttpHeaders());
+        Object obj = keyUriRestTemplate
+                .postForObject("http://oauth2-server/oauth/token_key",null,Object.class);
         return (String) keyUriRestTemplate
                 .exchange("http://oauth2-server/oauth/token_key", HttpMethod.GET, request, Map.class).getBody()
                 .get("value");
-
     }
 
 }

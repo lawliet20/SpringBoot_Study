@@ -1,0 +1,6 @@
+1 请求oauth/token HTTP头设置如下
+Content-Type application/x-www-form-urlencoded
+Authorization   Basic d2ViX3NvY2lhbF9hcHA6d2ViX3NvY2lhbF9hcHBfc2VjcmV0
+其中d2ViX3NvY2lhbF9hcHA6d2ViX3NvY2lhbF9hcHBfc2VjcmV0 解码后如下
+client:secret
+web_social_app:web_social_app_secret
