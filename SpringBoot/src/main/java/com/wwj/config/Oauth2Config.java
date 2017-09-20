@@ -1,13 +1,11 @@
 package com.wwj.config;
 
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-
 /**
  * 默认的token是放在内存中的，生产环境一般是放在数据库中的
  */
 //@Configuration
 //@EnableAuthorizationServer
-public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
+//public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
 //    @Resource(name = "authenticationManagerBean")
 //    private AuthenticationManager authenticationManager;
 //
@@ -59,4 +57,4 @@ public class Oauth2Config extends AuthorizationServerConfigurerAdapter {
 //        return tokenServices;
 //    }
 
-}
+//}

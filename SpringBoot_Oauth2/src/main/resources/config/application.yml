@@ -21,18 +21,18 @@ security:
         enabled: false
     oauth2:
         resource:
-            filter-order: 3
+            filter-order: 1
 
 ##服务启动后向eureka注册中心注册自己的服务
-eureka:
-    client:
-        enabled: true
-        healthcheck:
-            enabled: true
-        registerWithEureka: true
-        fetchRegistry: true
-        serviceUrl:
-            defaultZone: http://wwj:123@localhost:8070/eureka/
+#eureka:
+#    client:
+#        enabled: true
+#        healthcheck:
+#            enabled: true
+#        registerWithEureka: true
+#        fetchRegistry: true
+#        serviceUrl:
+#            defaultZone: http://wwj:123@localhost:8070/eureka/
 
 
 ##服务器端口

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SpringBoot" />
+        <module name="SpringBoot-SpringBatch" />
+        <module name="SpringBoot_Cloud_Config" />
+        <module name="SpringBoot_Cloud_Eureka" />
+        <module name="SpringBoot_Cloud_Study" />
+        <module name="SpringBoot_Cloud_Zuul" />
+        <module name="SpringBoot_Oauth2" />
+        <module name="SpringBoot_Service" />
+      </profile>
+      <profile name="Annotation profile for SpringBoot_Study" enabled="true">
+        <sourceOutputDir name="../SpringBoot-SpringBatch/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../SpringBoot-SpringBatch/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="SpringBoot-Batch" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="SpringBoot" target="1.8" />
+      <module name="SpringBoot_Cloud_Eureka" target="1.8" />
+      <module name="SpringBoot_Cloud_Study" target="1.8" />
+      <module name="SpringBoot_Cloud_Zuul" target="1.8" />
+      <module name="SpringBoot_Oauth2" target="1.6" />
+      <module name="SpringBoot_Service" target="1.6" />
+      <module name="SpringBoot_Study" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="PREFER_TARGET_JDK_COMPILER" value="false" />
+  </component>
+</project>

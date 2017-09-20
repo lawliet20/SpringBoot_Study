@@ -1,0 +1,45 @@
+spring:
+    mail:
+        host: smtp.126.com
+        username: lawliet_w@126.com
+        password: Hello520
+        default-encoding: UTF-8
+        test-connection: true # Test that the mail server is available on startup.
+        properties: # Additional JavaMail session properties.
+            mail:
+              mtp:
+                connectiontimeout: 5000
+                timeout: 3000
+                writetimeout: 5000
+    datasource:
+        #内存数据库，可以配合liquibase使用
+        #        type: com.zaxxer.hikari.HikariDataSource
+        #        url: jdbc:h2:mem:jpaserver;DB_CLOSE_DELAY=-1
+        #        username: jpaserver
+        #        password:
+        type: com.zaxxer.hikari.HikariDataSource
+        url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: root
+        password: tiger
+        hikari:
+            data-source-properties:
+                cachePrepStmts: true
+                prepStmtCacheSize: 250
+                prepStmtCacheSqlLimit: 2048
+                useServerPrepStmts: true
+
+
+#服务启动后向eureka注册中心注册自己的服务
+#eureka:
+#  client:
+#      enabled: true
+#      healthcheck:
+#          enabled: true
+#      registerWithEureka: true
+#      fetchRegistry: true
+#      serviceUrl:
+##     如何这里配置了注册中心集群，则这里用逗号分开
+#          defaultZone: http://wwj:123@localhost:8070/eureka/
+#  instance:
+#      prefer-ip-address: true #在eureka - http://localhost:8761上显示ip
+#      instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #定制在eureka - http://localhost:8761上显示的格式
