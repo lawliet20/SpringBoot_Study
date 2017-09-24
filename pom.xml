@@ -12,6 +12,7 @@
         <module>SpringBoot_Cloud_Zuul</module>
         <module>SpringBoot_Oauth2</module>
         <module>SpringBoot_Service</module>
+        <!--<module>Sharding_Jdbc</module>-->
     </modules>
 
     <groupId>SpringBoot_Study</groupId>

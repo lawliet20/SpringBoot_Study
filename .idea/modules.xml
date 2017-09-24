@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/SpringBoot_Cloud_Zuul/SpringBoot_Cloud_Zuul.iml" filepath="$PROJECT_DIR$/SpringBoot_Cloud_Zuul/SpringBoot_Cloud_Zuul.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringBoot_Oauth2/SpringBoot_Oauth2.iml" filepath="$PROJECT_DIR$/SpringBoot_Oauth2/SpringBoot_Oauth2.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringBoot_Service/SpringBoot_Service.iml" filepath="$PROJECT_DIR$/SpringBoot_Service/SpringBoot_Service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBoot_Sharding_Jdbc/SpringBoot_Sharding_Jdbc.iml" filepath="$PROJECT_DIR$/SpringBoot_Sharding_Jdbc/SpringBoot_Sharding_Jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringBoot_Study.iml" filepath="$PROJECT_DIR$/SpringBoot_Study.iml" />
     </modules>
   </component>
